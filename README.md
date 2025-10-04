@@ -1,1 +1,3 @@
 # Cube-Tower
+
+Cube Tower, refleks ve zamanlamayı ön plana çıkaran minimalist bir mobil beceri oyunudur. Oyuncular, ekrana doğru anda dokunarak hareket eden küpü durdurur ve her seferinde üst üste yeni bir küp ekleyerek dengeli bir kule inşa etmeye çalışır. Oyun ilerledikçe küplerin hareket hızı giderek artar, bu da oyuncunun dikkatini ve reflekslerini daha fazla sınar. Her yanlış hizalama küpün boyutunu küçültür, bu da ilerledikçe oyunu daha zor ve heyecanlı hale getirir. Basit kontrolleri, akıcı animasyonları ve rekabetçi skor sistemiyle Cube Tower, kısa sürede bağımlılık yaratan keyifli bir deneyim sunar.
