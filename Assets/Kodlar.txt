@@ -1,0 +1,127 @@
+  public void ButonIslemleri(string ButonDeger)
+  {
+      switch(ButonDeger)
+      {
+          case "Durdur":
+              SesCal(1);
+              PanelAc(2);
+              Time.timeScale = 0;
+              break;
+          case "DevamEt":
+              SesCal(1);
+              PanelKapat(2);
+              Time.timeScale = 1;
+              break;
+
+          case "OyunaBasla":
+              SesCal(1);
+              PanelKapat(0);
+              PanelAc(1);
+              _OyunBasladiMi = true;
+              break;
+          case "Tekrar":
+              SesCal(1);
+              SceneManager.LoadScene(_SahneIndex);
+              Time.timeScale = 1;
+              break;
+          case "SonrakiLevel":
+              SesCal(1);
+              SceneManager.LoadScene(_SahneIndex+1);
+              Time.timeScale = 1;
+              break;
+          case "Cikis":
+              SesCal(1);
+              PanelAc(5);                
+              break;
+          case "Evet":
+              SesCal(1);
+              Application.Quit();
+              break;
+          case "Hayir":
+              SesCal(1);
+              PanelKapat(5);
+              break;
+
+          case "OyunSes":
+              SesCal(1);
+                  
+              if (PlayerPrefs.GetInt("OyunSes")==0)
+              {
+                  PlayerPrefs.SetInt("OyunSes", 1);
+                  _ButonGorselleri[0].sprite = _SpriteObjeleri[0];
+                  _Sesler[0].mute = false;
+              }else
+              {
+                  PlayerPrefs.SetInt("OyunSes", 0);
+                  _ButonGorselleri[0].sprite = _SpriteObjeleri[1];
+                  _Sesler[0].mute = true;
+              }                
+              break;
+
+          case "EfektSes":
+              SesCal(1);
+
+              if (PlayerPrefs.GetInt("EfektSes") == 0)
+              {
+                  PlayerPrefs.SetInt("EfektSes", 1);
+                  _ButonGorselleri[1].sprite = _SpriteObjeleri[2];
+
+                  for (int i = 1; i < _Sesler.Length; i++)
+                  {
+                      _Sesler[i].mute = false;
+                  }
+              }
+              else
+              {
+                  PlayerPrefs.SetInt("EfektSes", 0);
+                  _ButonGorselleri[1].sprite = _SpriteObjeleri[3];
+                  for (int i = 1; i < _Sesler.Length; i++)
+                  {
+                      _Sesler[i].mute = true;
+                  }
+              }
+              break;                
+
+      }
+
+  }
+  void SahneIlkIslemleri()
+  {
+      if (PlayerPrefs.GetInt("OyunSes") == 1)
+      {            
+          _ButonGorselleri[0].sprite = _SpriteObjeleri[0];
+          _Sesler[0].mute = false;
+      }
+      else
+      {           
+          _ButonGorselleri[0].sprite = _SpriteObjeleri[1];
+          _Sesler[0].mute = true;
+      }
+
+
+      if (PlayerPrefs.GetInt("EfektSes") == 1)
+      {            
+          _ButonGorselleri[1].sprite = _SpriteObjeleri[2];
+
+          for (int i = 1; i < _Sesler.Length; i++)
+          {
+              _Sesler[i].mute = false;
+          }
+      }
+      else
+      {            
+          _ButonGorselleri[1].sprite = _SpriteObjeleri[3];
+          for (int i = 1; i < _Sesler.Length; i++)
+          {
+              _Sesler[i].mute = true;
+          }
+      }
+  }
+  void PanelAc(int Index)
+  {
+      _Paneller[Index].SetActive(true);
+  }
+  void PanelKapat(int Index)
+  {
+      _Paneller[Index].SetActive(false);
+  }
